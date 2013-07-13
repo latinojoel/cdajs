@@ -4,7 +4,7 @@
         "description": "CDA.js is a stand-alone javascript library for working with Pentaho Community Data Access plugin.",
         "version": "0.0.1",
         "url": "http://latinojoel.github.io/cda.js",
-        "logo": "http://latinojoel.github.io/cda.js/images/cdajs_logo.jpg"
+        "logo": "http://latinojoel.github.io/cda.js/images/cdajs_logo.png"
     },
     "files": {
         "lib\\cda.js": {

@@ -121,6 +121,7 @@
 		}
 
 		form input[type=text],
+		form input[type=email],
 		form input[type=password],
 		form select,
 		form textarea
@@ -136,6 +137,7 @@
 		}
 
 		form input[type=text]:focus,
+		form input[type=email]:focus,
 		form input[type=password]:focus,
 		form select:focus,
 		form textarea:focus
