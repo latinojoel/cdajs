@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>CDA.js - a stand-alone javascript library for CDA</title>
+		<title>CDAjs - a stand-alone javascript library for CDA</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="author" content="Joel Latino">
-		<meta name="description" content="CDA.js is a stand-alone javascript library for working with CDA (Pentaho Community Data Access plugin)" />
-		<meta name="keywords" content="cda,cda.js,pentaho,javascript,node.js" />
+		<meta name="description" content="CDAjs is a stand-alone javascript library for working with CDA (Pentaho Community Data Access plugin)" />
+		<meta name="keywords" content="cda,cdajs,pentaho,javascript,node.js" />
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
 		<script src="js/highlight.min.js"></script>
 		<link rel="stylesheet" href="css/googlecode.css">
@@ -45,15 +45,15 @@
 						</div>
 						<div class="8u">
 							<header>
-								<h1>This is <strong>CDA.js</strong> website.</h1>
+								<h1>This is <strong>CDAjs</strong> website.</h1>
 							</header>
-							<p><strong>CDA.js</strong> is a stand-alone javascript library for working with Pentaho Community Data Access plugin.</p>
+							<p><strong>CDAjs</strong> is a stand-alone javascript library for working with Pentaho Community Data Access plugin.</p>
 							<p style="font-size: 14px;">
 								Powered by <a href="https://github.com/latinojoel" target="_blank">latinojoel</a>&nbsp;&nbsp;
-								<iframe src="http://ghbtns.com/github-btn.html?user=latinojoel&amp;repo=cda.js&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-								<iframe src="http://ghbtns.com/github-btn.html?user=latinojoel&amp;repo=cda.js&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+								<iframe src="http://ghbtns.com/github-btn.html?user=latinojoel&amp;repo=cdajs&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+								<iframe src="http://ghbtns.com/github-btn.html?user=latinojoel&amp;repo=cdajs&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
 							</p>
-							<a href="#about" class="button button-big">Learn about CDA.js</a>
+							<a href="#about" class="button button-big">Learn about CDAjs</a>
 						</div>
 					</div>
 				</article>
@@ -75,16 +75,16 @@
 							<div class="2u"></div>
 							<div class="4u">
 								<article class="box box-style2">
-									<a href="https://github.com/latinojoel/cda.js/wiki/Using-in-Node.js" target="_blank" class="image image-full"><img src="images/nodejs.jpg" alt="" /></a>
+									<a href="https://github.com/latinojoel/cdajs/wiki/Using-in-Node.js" target="_blank" class="image image-full"><img src="images/nodejs.jpg" alt="" /></a>
 									<h3><a href="http://nodejs.org" target="_blank">Node.JS</a></h3>
-									<p>CDA.js is compativel with node.js. Check in out on this <a href="https://github.com/latinojoel/cda.js/wiki/Using-in-Node.js" target="_blank">link</a>.</p>
+									<p>CDAjs is compativel with node.js. Check in out on this <a href="https://github.com/latinojoel/cdajs/wiki/Using-in-Node.js" target="_blank">link</a>.</p>
 								</article>
 							</div>
 							<div class="4u">
 								<article class="box box-style2">
-									<a href="https://github.com/latinojoel/cda.js/wiki/Using-in-HTML-page" target="_blank" class="image image-full"><img src="images/webapp.jpg" alt="" /></a>
-									<h3><a href="https://github.com/latinojoel/cda.js/wiki/Using-in-HTML-page" target="_blank">Web Apps</a></h3>
-									<p>CDA.js is compativel for browser clients. Check in out on this <a href="https://github.com/latinojoel/cda.js/wiki/Using-in-HTML-page" target="_blank">link</a>.</p>
+									<a href="https://github.com/latinojoel/cdajs/wiki/Using-in-HTML-page" target="_blank" class="image image-full"><img src="images/webapp.jpg" alt="" /></a>
+									<h3><a href="https://github.com/latinojoel/cdajs/wiki/Using-in-HTML-page" target="_blank">Web Apps</a></h3>
+									<p>CDAjs is compativel for browser clients. Check in out on this <a href="https://github.com/latinojoel/cdajs/wiki/Using-in-HTML-page" target="_blank">link</a>.</p>
 								</article>
 							</div>
 							<div class="2u"></div>
@@ -93,7 +93,7 @@
 					<footer>
 						<p>Community Data Access (CDA) is a Pentaho plugin designed for accessing data with great flexibility. Powered by <a href="http://www.webdetails.pt" target="_blank">WebDetails</a>.</p>
 						<p>More about CDA <a href="http://www.webdetails.pt/ctools/cda.html" target="_blank">here</a>.</p>
-						<a href="#howWorks" class="button button-big">How CDA.js works</a>
+						<a href="#howWorks" class="button button-big">How CDAjs works</a>
 					</footer>
 				</article>
 			</div>
@@ -103,7 +103,7 @@
 				<article id="howWorks">
 					<header>
 						<h2>Create amazing analysis</h2>
-						<span>With CDA.js + CDA + Pentaho feel free to analysis your business.</span>
+						<span>With CDAjs + CDA + Pentaho feel free to analysis your business.</span>
 					</header>
 					<div class="container">
 						<div class="row">
@@ -115,7 +115,7 @@
 										<div class="javascript" style="text-align: justify;word-break: break-word;">
 											<pre>
 												<code style="text-align: justify;word-break: break-word;">
-var cda = require("cda.js");
+var cda = require("cdajs");
 exports.list = function(req, res) {
   var obj = new cda.CDA({
     url: "http://localhost:8086/pentaho/content/cda/",
@@ -185,12 +185,12 @@ exports.list = function(req, res) {
 					<footer>
 						<center>
 							<ul id="github-pack">
-							  <li><a href="https://github.com/latinojoel/cda.js/zipball/master">Download <strong>ZIP File</strong></a></li>
-							  <li><a href="https://github.com/latinojoel/cda.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
-							  <li><a href="https://github.com/latinojoel/cda.js">View On <strong>GitHub</strong></a></li>
+							  <li><a href="https://github.com/latinojoel/cdajs/zipball/master">Download <strong>ZIP File</strong></a></li>
+							  <li><a href="https://github.com/latinojoel/cdajs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+							  <li><a href="https://github.com/latinojoel/cdajs">View On <strong>GitHub</strong></a></li>
 							</ul>
 						</center>
-						<p>Check the javascript doc <a href="http://latinojoel.github.io/cda.js/api-0.0.1/" target="_blank">here</a>.</p>
+						<p>Check the javascript doc <a href="http://latinojoel.github.io/cdajs/api-0.0.1/" target="_blank">here</a>.</p>
 						<a href="#contact" class="button button-big">Get in touch with me</a>
 					</footer>
 				</article>

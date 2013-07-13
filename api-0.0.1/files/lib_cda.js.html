@@ -49,7 +49,7 @@
 
             <ul id="api-modules" class="apis modules">
             
-                <li><a href="../modules/CDA.js.html">CDA.js</a></li>
+                <li><a href="../modules/CDAjs.html">CDAjs</a></li>
             
             </ul>
         </div>
@@ -92,7 +92,7 @@
     <pre class="code prettyprint linenums">
 /*
  * Copyright 2013 Joel latino 
- * Contact: jlatino@sapo.pt ~ http://about.me/latinojoel/ ~ http://latinojoel.github.io/cda.js ~ http://joel-latino.blogspot.com
+ * Contact: jlatino@sapo.pt ~ http://about.me/latinojoel/ ~ http://latinojoel.github.io/cdajs ~ http://joel-latino.blogspot.com
  * Twitter: @latinojoel 
  * 
  * Include this in your web-pages for debug and development purposes only. For production purposes, 
@@ -111,16 +111,16 @@
 &quot;use strict&quot;; // js-hint is fuck&#x27;d up ^^
 
 /**
- * This is &lt;b&gt;CDA.js&lt;/b&gt; - a stand-alone javascript library for working with Pentaho plugin
+ * This is &lt;b&gt;CDAjs&lt;/b&gt; - a stand-alone javascript library for working with Pentaho plugin
  * &quot;Community Data Access&quot; CDA (&lt;i&gt;Community Data Access&lt;/i&gt;) is a open source plugin for
  * &lt;b&gt;Pentaho Business Analysis&lt;/b&gt; suite, designed to allow greater flexibility for data sources.
  * Powered by &lt;a href=&quot;http://www.webdetails.pt/ctools/cda.html&quot; target=&quot;_blank&quot;&gt;WebDetails&lt;/a&gt;.
- * &lt;br/&gt;&lt;br/&gt; &lt;b&gt;CDA.js&lt;/b&gt; is cross-browser and &lt;a
+ * &lt;br/&gt;&lt;br/&gt; &lt;b&gt;CDAjs&lt;/b&gt; is cross-browser and &lt;a
  * href=&quot;http://nodejs.org&quot;target=&quot;_blank&quot;&gt;Node.js&lt;/a&gt; compatible and enables web-browser-based
  * analytical Pentaho Business Intelligence applications.
  * 
- * @module CDA.js
- * @title CDA.js
+ * @module CDAjs
+ * @title CDAjs
  */
 (function(window) {
 
@@ -395,7 +395,7 @@
 
   /**
    * &lt;p&gt;
-   * This class is used to indicate an runtime errors occurring in any of the methods of the cda.js
+   * This class is used to indicate an runtime errors occurring in any of the methods of the CDAjs
    * classes.
    * &lt;/p&gt;
    * &lt;p&gt;
@@ -403,12 +403,12 @@
    * are created and thrown at runtime whenever an error occurs.
    * &lt;/p&gt;
    * &lt;p&gt;
-   * To handle CDA.js errors, you can use a &lt;code&gt;try...catch&lt;/code&gt; block like this:
+   * To handle CDAjs errors, you can use a &lt;code&gt;try...catch&lt;/code&gt; block like this:
    * &lt;/p&gt;
    * 
    * &lt;pre&gt;
    *    try {
-   *        ...general cda.js work...
+   *        ...general cdajs work...
    *    } catch (exception) {
    *        if (exception instanceof CDA.Exception) {
    *            ...use exception.code, exception.message and exception.data to handle the exception.
@@ -459,7 +459,7 @@
     return new CDA.Exception(CDA.Exception.TYPE_ERROR, code, message, help, source, data);
   };
 
-  var CDAWikiExceptionCodes = &quot;https://github.com/latinojoel/cda.js/wiki/Exception-Codes&quot;;
+  var CDAWikiExceptionCodes = &quot;https://github.com/latinojoel/cdajs/wiki/Exception-Codes&quot;;
 
   /**
    * Can appear as value for the type property of instances of the CDA.Exception class, and
@@ -665,7 +665,7 @@
   };
 
   /*
-   * Register CDA.js. In an amd (https://github.com/amdjs/amdjs-api/wiki/AMD) environment, use the
+   * Register CDAjs. In an amd (https://github.com/amdjs/amdjs-api/wiki/AMD) environment, use the
    * define function Otherwise, add it to the global window variable. For server side environemnts
    * that do not have a proper window object, simply create a global variable called window and
    * assign an object to it that you want to function as the CDA container.

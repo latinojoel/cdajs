@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>CDA.js - CDA.js</title>
+    <title>examples\expressjs-app-sample\app.js - CDA.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -49,7 +49,7 @@
 
             <ul id="api-modules" class="apis modules">
             
-                <li><a href="../modules/CDA.js.html">CDA.js</a></li>
+                <li><a href="../modules/CDAjs.html">CDAjs</a></li>
             
             </ul>
         </div>
@@ -86,61 +86,46 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>CDA.js Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: examples\expressjs-app-sample\app.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/lib_cda.js.html#l304"><code>lib\cda.js:304</code></a>
-        </div>
-    
+/**
+ * Module dependencies.
+ */
 
-    
-</div>
+var express = require(&#x27;express&#x27;)
+  , routes = require(&#x27;./routes&#x27;)
+  , http = require(&#x27;http&#x27;)
+  , path = require(&#x27;path&#x27;);
 
+var app = express();
 
+// all environments
+app.set(&#x27;port&#x27;, process.env.PORT || 3000);
+app.set(&#x27;views&#x27;, __dirname + &#x27;/views&#x27;);
+app.set(&#x27;view engine&#x27;, &#x27;jade&#x27;);
+app.use(express.favicon());
+app.use(express.logger(&#x27;dev&#x27;));
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
+app.use(require(&#x27;stylus&#x27;).middleware(__dirname + &#x27;/public&#x27;));
+app.use(express.static(path.join(__dirname, &#x27;public&#x27;)));
 
-<div class="box intro">
-    <p>This is <b>CDA.js</b> - a stand-alone javascript library for working with Pentaho plugin
-"Community Data Access" CDA (<i>Community Data Access</i>) is a open source plugin for
-<b>Pentaho Business Analysis</b> suite, designed to allow greater flexibility for data sources.
-Powered by <a href="http://www.webdetails.pt/ctools/cda.html" target="_blank">WebDetails</a>.
-<br/><br/> <b>CDA.js</b> is cross-browser and <a
-href="http://nodejs.org"target="_blank">Node.js</a> compatible and enables web-browser-based
-analytical Pentaho Business Intelligence applications.</p>
-</div>
+// development only
+if (&#x27;development&#x27; == app.get(&#x27;env&#x27;)) {
+  app.use(express.errorHandler());
+}
 
+app.get(&#x27;/&#x27;, routes.index);
 
+http.createServer(app).listen(app.get(&#x27;port&#x27;), function(){
+  console.log(&#x27;Express server listening on port &#x27; + app.get(&#x27;port&#x27;));
+});
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/CDA.html">
-                        CDA
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/CDA.Exception.html">
-                        CDA.Exception
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+    </pre>
 </div>
 
                     </div>
