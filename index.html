@@ -1,81 +1,278 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Cda.js by latinojoel</title>
+	<head>
+		<title>CDA.js - a stand-alone javascript library for CDA</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="author" content="Joel Latino">
+		<meta name="description" content="CDA.js is a stand-alone javascript library for working with CDA (Pentaho Community Data Access plugin)" />
+		<meta name="keywords" content="cda,cda.js,pentaho,javascript,node.js" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<script src="js/highlight.min.js"></script>
+		<link rel="stylesheet" href="css/googlecode.css">
+		<link rel="stylesheet" href="css/default.min.css">
+		<link rel="stylesheet" href="css/style-conf.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/script.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
+	</head>
+	<body>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Cda.js</h1>
-        <p>CDA.js is a Pentaho CDA client in javascript.</p>
+		<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="#top">Top</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#howWorks">How Works</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
 
-        <p class="view"><a href="https://github.com/latinojoel/cda.js">View the Project on GitHub <small>latinojoel/cda.js</small></a></p>
+		<!-- Home -->
+			<div class="wrapper wrapper-style1 wrapper-first">
+				<article class="container" id="top">
+					<div class="row">
+						<div class="4u">
+							<span class="image image-full" style="margin-top: 50px;"><img src="images/cdajs_logo.jpg" alt="" /></span>
+						</div>
+						<div class="8u">
+							<header>
+								<h1>This is <strong>CDA.js</strong> website.</h1>
+							</header>
+							<p><strong>CDA.js</strong> is a stand-alone javascript library for working with Pentaho Community Data Access plugin.</p>
+							<p style="font-size: 14px;">
+								Powered by <a href="https://github.com/latinojoel" target="_blank">latinojoel</a>&nbsp;&nbsp;
+								<iframe src="http://ghbtns.com/github-btn.html?user=latinojoel&amp;repo=cda.js&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+								<iframe src="http://ghbtns.com/github-btn.html?user=latinojoel&amp;repo=cda.js&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+							</p>
+							<a href="#about" class="button button-big">Learn about CDA.js</a>
+						</div>
+					</div>
+				</article>
+			</div>
+			
+		<!-- About -->
+			<div class="wrapper wrapper-style3">
+				<article id="about">
+					<header>
+						<h2>Awesome utility.</h2>
+						<span>Possibility using in two scenarios (Node.JS and Browser clients).</span>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+							</div>
+						</div>
+						<div class="row">
+							<div class="2u"></div>
+							<div class="4u">
+								<article class="box box-style2">
+									<a href="https://github.com/latinojoel/cda.js/wiki/Using-in-Node.js" target="_blank" class="image image-full"><img src="images/nodejs.jpg" alt="" /></a>
+									<h3><a href="http://nodejs.org" target="_blank">Node.JS</a></h3>
+									<p>CDA.js is compativel with node.js. Check in out on this <a href="https://github.com/latinojoel/cda.js/wiki/Using-in-Node.js" target="_blank">link</a>.</p>
+								</article>
+							</div>
+							<div class="4u">
+								<article class="box box-style2">
+									<a href="https://github.com/latinojoel/cda.js/wiki/Using-in-HTML-page" target="_blank" class="image image-full"><img src="images/webapp.jpg" alt="" /></a>
+									<h3><a href="https://github.com/latinojoel/cda.js/wiki/Using-in-HTML-page" target="_blank">Web Apps</a></h3>
+									<p>CDA.js is compativel for browser clients. Check in out on this <a href="https://github.com/latinojoel/cda.js/wiki/Using-in-HTML-page" target="_blank">link</a>.</p>
+								</article>
+							</div>
+							<div class="2u"></div>
+						</div>
+					</div>
+					<footer>
+						<p>Community Data Access (CDA) is a Pentaho plugin designed for accessing data with great flexibility. Powered by <a href="http://www.webdetails.pt" target="_blank">WebDetails</a>.</p>
+						<p>More about CDA <a href="http://www.webdetails.pt/ctools/cda.html" target="_blank">here</a>.</p>
+						<a href="#howWorks" class="button button-big">How CDA.js works</a>
+					</footer>
+				</article>
+			</div>
 
+		<!-- How Works -->
+			<div class="wrapper wrapper-style2">
+				<article id="howWorks">
+					<header>
+						<h2>Create amazing analysis</h2>
+						<span>With CDA.js + CDA + Pentaho feel free to analysis your business.</span>
+					</header>
+					<div class="container">
+						<div class="row">
+							<div class="6u">
+								<section class="box box-style1">
+									<span class="icon featured-icon icon-magic"></span>
+									<h3>Node.JS Sample</h3>
+									<p>
+										<div class="javascript" style="text-align: justify;word-break: break-word;">
+											<pre>
+												<code>
+var cda = require("cda.js");
+exports.list = function(req, res) {
+  var obj = new cda.CDA({
+    url: "http://localhost:8086/pentaho/content/cda/",
+    username: "joe",
+    password: "password",
+    error: function(error) {
+      console.log("Error: " + error);
+      return;
+    }
+  });
+  obj.doQuery(function(xhr) {
+    res.send("Result Set: " + xhr.resultset);
+  }, {
+    params: {
+      dataAccessId: 3,
+      pageSize: 0,
+      pageStart: 0,
+      path: "%2Fairc%2Fexecutivo%2Frecursoshumanos%2Frecursoshumanos.cda",
+      sortBy: ""
+    }
+  });
+};
+												</code>
+											</pre>
+										</div>
+									</p>
+								</section>
+							</div>
+							<div class="6u">
+								<section class="box box-style1">
+									<span class="icon featured-icon icon-file-alt"></span>
+									<h3>JavaScript Sample</h3>
+									<p>
+										<div class="javascript" style="text-align: justify;word-break: break-word;">
+											<pre>
+												<code>
+ var obj = new CDA({
+	url: "http://localhost:8080/pentaho/content/cda/",
+	username: "joe",
+	password: "password",
+	error: function(error) {
+	  console.log("Error: " + error);
+	  return;
+	}
+  });
+  
+  obj.doQuery(function(xhr) {
+	document.getElementById("data").innerHTML=("Result Set: " + xhr.resultset);
+  }, {
+	params: {
+	  dataAccessId: 1,
+	  pageSize: 0,
+	  pageStart: 0,
+	  path: "%2Fairc%2Fexecutivo%2Frecursoshumanos%2Frecursoshumanos.cda",
+	  sortBy: ""
+	}
+  });
+  
+												</code>
+											</pre>
+										</div>
+									</p>
+								</section>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<center>
+							<ul id="github-pack">
+							  <li><a href="https://github.com/latinojoel/cda.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+							  <li><a href="https://github.com/latinojoel/cda.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+							  <li><a href="https://github.com/latinojoel/cda.js">View On <strong>GitHub</strong></a></li>
+							</ul>
+						</center>
+						<p>Check the javascript doc <a href="http://latinojoel.github.io/cda.js/api-0.0.1/" target="_blank">here</a>.</p>
+						<a href="#contact" class="button button-big">Get in touch with me</a>
+					</footer>
+				</article>
+			</div>
 
-        <ul>
-          <li><a href="https://github.com/latinojoel/cda.js/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/latinojoel/cda.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/latinojoel/cda.js">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+		<!-- Contact -->
+			<div class="wrapper wrapper-style4">
+				<article id="contact">
+					<header>
+						<h2>Get in touch!</h2>
+						<span>Feel free.</span>
+					</header>
+					<div>
+						<div class="row">
+							<div class="12u">
+								<form method="post" action="#">
+									<div>
+										<div class="row half">
+											<div class="6u">
+												<input type="text" name="name" id="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" name="email" id="email" placeholder="Email" />
+											</div>
+										</div>
+										<div class="row half">
+											<div class="12u">
+												<input type="text" name="subject" id="subject" placeholder="Subject" />
+											</div>
+										</div>
+										<div class="row half">
+											<div class="12u">
+												<textarea name="message" id="message" placeholder="Message"></textarea>
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<a href="#" class="button form-button-submit">Send Message</a>
+												<a href="#" class="button button-alt form-button-reset">Clear Form</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row row-special">
+							<div class="12u">
+								<h3>Find me on ...</h3>
+								<ul class="social">
+									<li class="twitter"><a href="http://twitter.com/latinojoel" class="icon icon-twitter"><span>Twitter</span></a></li>
+									<!--<li class="dribbble"><a href="http://dribbble.com/latinojoel" class="icon icon-dribbble"><span>Dribbble</span></a></li>-->
+									<li class="linkedin"><a href="http://pt.linkedin.com/in/latinojoel" class="icon icon-linkedin"><span>LinkedIn</span></a></li>
+									<li class="tumblr"><a href="http://latinojoel.tumblr.com" class="icon icon-tumblr"><span>Tumblr</span></a></li>
+									<li class="googleplus"><a href="https://plus.google.com/114278381900027678515" class="icon icon-google-plus"><span>Google+</span></a></li>
+									<li class="github"><a href="http://github.com/latinojoel" class="icon icon-github"><span>Github</span></a></li>
+									<!--<li class="rss"><a href="#" class="icon icon-rss"><span>RSS</span></a></li>-->
+									<li class="instagram"><a href="http://instagram.com/latinojoel" class="icon icon-instagram"><span>Instagram</span></a></li>
+									<!--<li class="youtube"><a href="#" class="icon icon-youtube"><span>YouTube</span></a></li>-->
+									<li class="blogger"><a href="http://joel-latino.blogspot.com" class="icon icon-blogger"><span>Blogger</span></a></li>
+									<!--<li class="flickr"><a href="#" class="icon icon-flickr"><span>Flickr</span></a></li>-->
+									<!--<li class="vimeo"><a href="#" class="icon icon-vimeo"><span>Vimeo</span></a></li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<footer>
+						<p id="copyright">
+							&copy; 2013 <a href="http://about.me/latinojoel" target="_blank">Joel Latino</a>  Images: <a href="http://fotogrph.com" target="_blank">fotogrph</a>  | Design: <a href="http://html5up.net/" target="_blank">HTML5 UP</a>
+						</p>
+					</footer>
+				</article>
+			</div>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+		  ga('create', 'UA-38184880-4', 'latinojoel.github.io');
+		  ga('send', 'pageview');
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/latinojoel">latinojoel</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("38184880-4");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-  </body>
+		</script>
+	</body>
 </html>
