@@ -5,7 +5,7 @@ CDAjs is a stand-alone javascript library for working with Pentaho Community Dat
 
 ### About Community Data Access (CDA)
 
-Community Data Access (CDA) is a Pentaho plugin designed for accessing data with great flexibility.
+Community Data Access (CDA) is a Pentaho plugin designed for accessing data with great flexibility. Powered by [Webdetails](http://www.webdetails.pt).
 Born for overcoming some cons of the older implementation, CDA allows you to access any of the various Pentaho data sources and:
 * Join different data sources just by editing an XML file;
 * Cache queries providing a great boost in performance;
