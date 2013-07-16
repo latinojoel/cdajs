@@ -1,0 +1,15 @@
+{
+  "name": "CDAjs",
+  "description": "CDAjs is a stand-alone javascript library for working with Pentaho Community Data Access plugin.",
+  "version": "0.0.1",
+  "url": "http://latinojoel.github.io/cdajs",
+  "logo": "http://latinojoel.github.io/cdajs/images/cdajs_logo.png",
+  "options": {
+    "linkNatives": "true",
+    "attributesEmit": "true",
+    "paths": [
+      "../lib"
+    ],
+    "outdir": "./api-0.0.1"
+  }
+}

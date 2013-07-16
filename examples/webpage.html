@@ -1,0 +1,36 @@
+<html>
+
+	<head>
+		<meta charset='utf-8'>
+		<title>CDA.js Web Page Sample</title>
+		<script type="text/javascript" src="../lib/min/cda-min.js"></script>
+		<script type="text/javascript">
+		 var obj = new CDA({
+		    url: "http://localhost:8080/pentaho/content/cda/",
+		    username: "joe",
+		    password: "password",
+		    error: function(error) {
+		      console.log("Error: " + error);
+		      return;
+		    }
+		  });
+		  obj.doQuery(function(xhr) {
+		    document.getElementById("data").innerHTML=("Result Set: " + xhr.resultset);
+		  }, {
+		    params: {
+		      dataAccessId: 1,
+			  outputIndexId: 1,
+		      pageSize: 0,
+		      pageStart: 0,
+		      path: "%2Fplugin-samples%2Fcda%2Fcdafiles%2Fscripting.cda",
+		      sortBy: ""
+		    }
+		  });
+		</script>
+	</head>
+	
+	<body>
+		<p id="data"></p>
+	</body>
+
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "cdajs",
+  "version": "0.0.1",
+  "description": "CDAjs is a Pentaho CDA client in javascript.",
+  "homepage": "http://latinojoel.github.io/cdajs",
+  "main": "index.js",
+  "keywords": [
+    "Javascript",
+    "Pentaho",
+    "CDA",
+    "MDX",
+    "Data Access",
+    "DW",
+    "DatawareHouse",
+    "BI",
+    "Mondrian",
+    "Wrapper"
+  ],
+  "author":  {
+    "name": "Joel Latino",
+    "email": "jlatino@sapo.pt"
+  },
+  "engines": {
+    "node": ">= 0.8.0",
+    "npm": ">= 1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/latinojoel/cdajs.git"
+  },
+  "license": "GPLv3"
+}
