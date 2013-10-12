@@ -3,7 +3,7 @@
  * GET home page.
  */
 
-var cda = require("cda.js");
+var cda = require("cdajs");
 
 exports.index = function(req, res) {
   var obj = new cda.CDA({
@@ -15,7 +15,7 @@ exports.index = function(req, res) {
       return;
     }
   });
-  obj.doQuery(function(xhr) {
+  obj.doQuery(function (xhr) {
     res.send("Result Set: " + xhr.resultset);
   }, {
     params: {

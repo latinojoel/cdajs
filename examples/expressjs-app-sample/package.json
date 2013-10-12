@@ -1,4 +1,4 @@
-cd wo  {
+{
   "name": "application-name",
   "version": "0.0.2",
   "private": true,
@@ -7,7 +7,7 @@ cd wo  {
   },
   "dependencies": {
     "express": "3.3.4",
-	  "cda.js": ">=0.0.2",
+    "cdajs": ">=0.0.1",
     "jade": "*",
     "stylus": "*"
   }
