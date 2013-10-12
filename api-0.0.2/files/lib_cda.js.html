@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib\cda.js - CDAjs</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="http://latinojoel.github.io/cdajs/images/cdajs_logo.png" title="CDAjs"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.2</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/CDA.html">CDA</a></li>
+            
+                <li><a href="../classes/CDA.Exception.html">CDA.Exception</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/CDAjs.html">CDAjs</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: lib\cda.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*
+ * Copyright 2013 Joel latino
+ * Contact: jlatino@sapo.pt ~ http://about.me/latinojoel/ ~ http://latinojoel.github.io/cdajs ~ http://joel-latino.blogspot.com
+ * Twitter: @latinojoel
+ *
+ * Include this in your web-pages for debug and development purposes only. For production purposes,
+ * consider using the minified/obfuscated versions in the /min directory.
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version. This
+ * program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+ * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License for more details. You should have received a copy of the GNU General Public
+ * License along with this program.
+ * If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+&quot;use strict&quot;; // js-hint is fuck&#x27;d up ^^
+/**
+ * This is &lt;b&gt;CDAjs&lt;/b&gt; - a stand-alone javascript library for working with Pentaho plugin
+ * &quot;Community Data Access&quot; CDA (&lt;i&gt;Community Data Access&lt;/i&gt;) is a open source plugin for
+ * &lt;b&gt;Pentaho Business Analysis&lt;/b&gt; suite, designed to allow greater flexibility for data sources.
+ * Powered by &lt;a href=&quot;http://www.webdetails.pt/ctools/cda.html&quot; target=&quot;_blank&quot;&gt;WebDetails&lt;/a&gt;.
+ * &lt;br/&gt;&lt;br/&gt; &lt;b&gt;CDAjs&lt;/b&gt; is cross-browser and &lt;a
+ * href=&quot;http://nodejs.org&quot;target=&quot;_blank&quot;&gt;Node.js&lt;/a&gt; compatible and enables web-browser-based
+ * analytical Pentaho Business Intelligence applications.
+ *
+ * @module CDAjs
+ * @title CDAjs
+ */
+(function (window) {
+
+
+  /**
+   * Get&#x27;s a XML Http Request
+   *
+   * @return {Object} a XML Http Request object.
+   */
+
+  function _Xhr() {
+    if (window.XMLHttpRequest) {
+      return new window.XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+      return new window.ActiveXObject(&quot;MSXML2.XMLHTTP.3.0&quot;);
+    } else if (typeof (require) === &quot;function&quot;) {
+      var xhr;
+      (xhr = function () {
+        this.readyState = 0;
+        this.status = -1;
+        this.statusText = &quot;Not sent&quot;;
+        this.responseText = null;
+      }).prototype = {
+        changeStatus: function (statusCode, readyState) {
+          this.status = statusCode;
+          this.statusText = statusCode;
+          this.readyState = readyState;
+          if (_isFun(this.onreadystatechange)) {
+            this.onreadystatechange.call(this, this);
+          }
+        },
+        open: function (method, url, async, username, password) {
+          if (async !== true) {
+            throw &quot;Synchronous mode not supported in this environment.&quot;;
+          }
+          var options = require(&quot;url&quot;).parse(url);
+          if (options.host.length &gt; options.hostname.length) {
+            // for some reason, host includes the port, this confuses http.request
+            // so, overwrite host with hostname (which does not include the port)
+            // and kill hostname so that we end up with only host.
+            options.host = options.hostname;
+            delete options.hostname;
+          }
+          if (!options.path &amp;&amp; options.pathname) {
+            // old versions of node may not give the path, so we need to create it ourselves.
+            options.path = options.pathname + (options.search || &quot;&quot;);
+          }
+          options.method = CDA.DEFAULT_OPTIONS.METHOD; // method;
+          options.headers = {};
+          if (username) options.headers.Authorization = &quot;Basic &quot; + (new Buffer(username + &quot;:&quot; + (password || &quot;&quot;))).toString(&quot;base64&quot;);
+          this.options = options;
+          this.changeStatus(-1, 1);
+        },
+        send: function (data) {
+          var me = this,
+            options = me.options,
+            client;
+          if (data) {
+            options.headers[&quot;Content-Length&quot;] = Buffer.byteLength(data);
+          }
+          switch (options.protocol) {
+          case &quot;http:&quot;:
+            client = require(&quot;http&quot;);
+            if (!options.port) options.port = &quot;80&quot;;
+            break;
+          case &quot;https:&quot;:
+            client = require(&quot;https&quot;);
+            if (!options.port) options.port = &quot;443&quot;;
+            break;
+          default:
+            throw &quot;Unsupported protocol &quot; + options.protocol;
+          }
+          me.responseText = &quot;&quot;;
+          var request = client.request(options, function (response) {
+            response.setEncoding(&quot;utf8&quot;);
+            me.changeStatus(-1, 2);
+            response.on(&quot;data&quot;, function (chunk) {
+              me.responseText += chunk;
+              me.changeStatus(response.statusCode, 3);
+            });
+            response.on(&quot;error&quot;, function (error) {
+              me.changeStatus(response.statusCode, 4);
+            });
+            response.on(&quot;end&quot;, function () {
+              me.changeStatus(response.statusCode, 4);
+            });
+          });
+          request.on(&quot;error&quot;, function (e) {
+            me.responseText = e;
+            me.changeStatus(500, 4);
+          });
+          if (data) request.write(data);
+          request.end();
+        },
+        setRequestHeader: function (name, value) {
+          this.options.headers[name] = value;
+        }
+      };
+      return new xhr();
+    } else {
+      CDA.Exception.newError(&quot;ERROR_INSTANTIATING_XMLHTTPREQUEST&quot;, &quot;ajax&quot;, null)._throw();
+    }
+  }
+
+
+  /**
+   * Convert parameters for HTTP request.
+   *
+   * @param params a parameters to convert.
+   * @return {string} a string with parameters converted for HTTP request.
+   */
+
+  function _convertParams(params) {
+    var form = &quot;?&quot;;
+    var isFirst = true;
+    for (var key in params) {
+      isFirst ? isFirst = false : form += &quot;&amp;&quot;;
+      var value = typeof params[key] == &#x27;function&#x27; ? params[key]() : params[key];
+      form += key + &quot;=&quot; + value;
+    }
+    return form;
+  }
+
+
+  /**
+   * Checks argument is undefined.
+   *
+   * @param arg an argument.
+   * @return {boolean} &lt;code&gt;true&lt;/code&gt; if argument is undefined, &lt;code&gt;false&lt;/code&gt; if
+   *         argument isn&#x27;t undefined.
+   */
+
+  function _isUnd(arg) {
+    return typeof (arg) === &quot;undefined&quot;;
+  }
+
+
+  /**
+   * Checks argument is function.
+   *
+   * @param arg an argument.
+   * @return {boolean} &lt;code&gt;true&lt;/code&gt; if argument is function, &lt;code&gt;false&lt;/code&gt; if argument
+   *         isn&#x27;t function.
+   */
+
+  function _isFun(arg) {
+    return typeof (arg) === &quot;function&quot;;
+  }
+
+
+  /**
+   * Function responsable for invoke an endpoint.
+   *
+   * @param callback a callback function executed when HTTP request to endpoint gives success.
+   * @param options a options for invoke endpoint (can be HTTP parameters, ...).
+   * @param endpoint an endpoint name.
+   * @param self a self instance of CDAjs.
+   */
+
+  function _invokeEndpoint(callback, options, endpoint, self) {
+    var xhr = _Xhr();
+    options.method = options.method || CDA.DEFAULT_OPTIONS.METHOD;
+
+    // Parameters for Pentaho Authentication
+    options.params[&quot;userid&quot;] = options.username || self.options.username;
+    options.params[&quot;password&quot;] = options.password || self.options.password;
+
+    options.form = _convertParams(options.params);
+
+    options.url = (options.url || self.options.url) + endpoint + (options.method.toUpperCase() === &quot;GET&quot; ? (options.form || &quot;&quot;) : &quot;&quot;);
+    xhr.open(options.method, options.url, options.async || CDA.DEFAULT_OPTIONS.ASYNC, options.username, options.password);
+    xhr.timeout = options.timeout || CDA.DEFAULT_OPTIONS.REQUEST_TIMEOUT;
+    xhr.setRequestHeader(&quot;Accept&quot;, options[&quot;Accept&quot;] || CDA.DEFAULT_OPTIONS.ACCEPT);
+    xhr.setRequestHeader(&quot;Content-Type&quot;, options[&quot;Content-Type&quot;] || CDA.DEFAULT_OPTIONS.CONTENT_TYPE);
+
+    if (options.method.toUpperCase() === &quot;GET&quot;) {
+      xhr.send();
+    } else {
+      xhr.send(options.form || &quot;&quot;);
+    }
+
+    xhr.onreadystatechange = function () {
+      switch (xhr.readyState) {
+      case 0:
+        if (_isFun(options.aborted)) {
+          options.aborted(xhr);
+        }
+        break;
+      case 4:
+        if (xhr.status === 200) {
+          var response = &quot;&quot;;
+          try {
+            response = JSON.parse(xhr.responseText);
+          } catch (e) {
+            response = xhr.responseText;
+            console.log(&quot;Can not convert to JSON after invoke &quot; + endpoint + &quot; endpoint.&quot;);
+          }
+          callback(xhr.responseText == &quot;&quot; ? &quot;&quot; : response);
+        } else {
+          var err = CDA.Exception.newError(&quot;HTTP_ERROR&quot;, &quot;xhr&quot;, {
+            request: options,
+            status: self.status,
+            statusText: self.statusText
+          });
+          console.log(&quot;Error: &quot; + err);
+          // When I have an error in HTTP, this allows better debugging
+          // So made an extra call instead of _newError inside func call
+          if (!_isUnd(options.error) &amp;&amp; _isFun(options.error)) {
+            options.error(err);
+          }
+        }
+        break;
+      }
+    };
+  }
+
+
+  if (!window.JSON) {
+    window.JSON = {
+      parse: function (sJSON) {
+        return eval(&quot;(&quot; + sJSON + &quot;)&quot;);
+      },
+      stringify: function (vContent) {
+        if (vContent instanceof Object) {
+          var sOutput = &quot;&quot;;
+          if (vContent.constructor === Array) {
+            for (var nId = 0; nId &lt; vContent.length; sOutput += this.stringify(vContent[nId]) + &quot;,&quot;, nId++);
+            return &quot;[&quot; + sOutput.substr(0, sOutput.length - 1) + &quot;]&quot;;
+          }
+          if (vContent.toString !== Object.prototype.toString) {
+            return &quot;\&quot;&quot; + vContent.toString().replace(/&quot;/g, &quot;\\$&amp;&quot;) + &quot;\&quot;&quot;;
+          }
+          for (var sProp in vContent) {
+            sOutput += &quot;\&quot;&quot; + sProp.replace(/&quot;/g, &quot;\\$&amp;&quot;) + &quot;\&quot;:&quot; + this.stringify(vContent[sProp]) + &quot;,&quot;;
+          }
+          return &quot;{&quot; + sOutput.substr(0, sOutput.length - 1) + &quot;}&quot;;
+        }
+        return typeof vContent === &quot;string&quot; ? &quot;\&quot;&quot; + vContent.replace(/&quot;/g, &quot;\\$&amp;&quot;) + &quot;\&quot;&quot; : String(vContent);
+      }
+    };
+  }
+
+
+  /**
+   * The CDA class provides a javascript API to communicate Pentaho Community Data Access plugin
+   * (CDA) over HTTP.
+   *
+   * @class CDA
+   * @constructor
+   * @param options {Object} standard options
+   */
+
+  function CDA(options) {
+    this.options = options || CDA.Exception.newError(&quot;ERROR_CDA_OPTIONS&quot;, &quot;CDA.constructor&quot;, null)._throw();
+    this.options.url = options.url || CDA.Exception.newError(&quot;ERROR_CDA_URL&quot;, &quot;CDA.constructor&quot;, null)._throw();
+    this.options.username = options.username || CDA.Exception.newError(&quot;ERROR_CDA_USERNAME&quot;, &quot;CDA.constructor&quot;, null)._throw();
+    this.options.password = options.password || CDA.Exception.newError(&quot;ERROR_CDA_PASSWORD&quot;, &quot;CDA.constructor&quot;, null)._throw();
+    this.options.params = options.params || {};
+    this.options.params.outputIndexId = options.params.outputIndexId || 1;
+  }
+
+
+  /**
+   * These are the default options used for new CDA instances in case no custom properties are set.
+   * It sets the following properties:
+   * &lt;ul&gt;
+   * &lt;li&gt;&lt;code&gt;REQUEST_TIMEOUT&lt;/code&gt; int: 60000 - number of milliseconds before a request to the
+   * Pentaho server will timeout &lt;/li&gt;
+   * &lt;li&gt;&lt;code&gt;ASYNC&lt;/code&gt; boolean: true - determines whether synchronous or asynchronous
+   * communication with the Pentaho server will be used.&lt;/li&gt;
+   * &lt;li&gt;&lt;code&gt;ACCEPT&lt;/code&gt; string: text/xml, application/json - determines the accept header on
+   * http request with the Pentaho server will be used.&lt;/li&gt;
+   * &lt;li&gt;&lt;code&gt;CONTENT_TYPE&lt;/code&gt; string: application/json - determines the content-type header
+   * on http request with the Pentaho server will be used.&lt;/li&gt;
+   * &lt;li&gt;&lt;code&gt;METHOD&lt;/code&gt; string: GET - determines the method on http request with the Pentaho
+   * server will be used.&lt;/li&gt;
+   * &lt;/ul&gt;
+   *
+   * @property DEFAULT_OPTIONS
+   * @static
+   * @type object
+   */
+  CDA.DEFAULT_OPTIONS = {
+    REQUEST_TIMEOUT: 60000,
+    ASYNC: true,
+    ACCEPT: &quot;text/xml, application/json&quot;,
+    CONTENT_TYPE: &quot;application/json&quot;,
+    METHOD: &quot;GET&quot;
+  };
+
+  /**
+   * Invokes the &lt;code&gt;/cda/doQuery&lt;/code&gt; endpoint of CDA.
+   *
+   * @method doQuery
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.doQuery = function (callback, options) {
+    var endpoint = &quot;doQuery&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+    // Is mandatory use dataAccessId
+    if (_isUnd(options.params) || _isUnd(options.params.dataAccessId)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_DATA_ACCESS_ID&quot;, endpoint, null)._throw();
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * Invokes the &lt;code&gt;/cda/listQueries&lt;/code&gt; endpoint of CDA.
+   *
+   * @method listQueries
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.listQueries = function (callback, options) {
+    var endpoint = &quot;listQueries&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+    // Is mandatory use params
+    if (_isUnd(options.params)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param soltion
+    if (_isUnd(options.params.solution)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_SOLUTION&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param path
+    if (_isUnd(options.params.path)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_PATH&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param fike
+    if (_isUnd(options.params.file)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_FILE&quot;, endpoint, null)._throw();
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * Invokes the &lt;code&gt;/cda/getCdaList&lt;/code&gt; endpoint of CDA.
+   *
+   * @method getCdaList
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.getCdaList = function (callback, options) {
+    var endpoint = &quot;getCdaList&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * Invokes the &lt;code&gt;/cda/listDataAccessTypes&lt;/code&gt; endpoint of CDA.
+   *
+   * @method listDataAccessTypes
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.listDataAccessTypes = function (callback, options) {
+    var endpoint = &quot;listDataAccessTypes&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * Invokes the &lt;code&gt;/cda/listParameters&lt;/code&gt; endpoint of CDA.
+   *
+   * @method listParameters
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.listParameters = function (callback, options) {
+    var endpoint = &quot;listParameters&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+    // Is mandatory use params
+    if (_isUnd(options.params)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param soltion
+    if (_isUnd(options.params.solution)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_SOLUTION&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param path
+    if (_isUnd(options.params.path)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_PATH&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param fike
+    if (_isUnd(options.params.file)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_FILE&quot;, endpoint, null)._throw();
+    }
+    // Is mandatory use param dataAccessId
+    if (_isUnd(options.params.dataAccessId)) {
+      CDA.Exception.newError(&quot;ERROR_MISSING_PARAMS_DATA_ACCESS_ID&quot;, endpoint, null)._throw();
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * Invokes the &lt;code&gt;/cda/clearCache&lt;/code&gt; endpoint of CDA.
+   *
+   * @method clearCache
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.clearCache = function (callback, options) {
+    var endpoint = &quot;clearCache&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * Invokes the &lt;code&gt;/cda/getCdaFile&lt;/code&gt; endpoint of CDA.
+   *
+   * @method getCdaFile
+   * @param {Object} options Options to use on http request.
+   * @param {function()} callback Function to be called for cda query done.
+   */
+  CDA.prototype.getCdaFile = function (callback, options) {
+    var endpoint = &quot;getCdaFile&quot;;
+    if (_isUnd(options)) {
+      options = this.options;
+    }
+
+    // invokes endpoint
+    _invokeEndpoint(callback, options, endpoint, this);
+  };
+
+
+  /**
+   * &lt;p&gt;
+   * This class is used to indicate an runtime errors occurring in any of the methods of the CDAjs
+   * classes.
+   * &lt;/p&gt;
+   * &lt;p&gt;
+   * You do not need to instantiate objects of this class yourself. Rather, instances of this class
+   * are created and thrown at runtime whenever an error occurs.
+   * &lt;/p&gt;
+   * &lt;p&gt;
+   * To handle CDAjs errors, you can use a &lt;code&gt;try...catch&lt;/code&gt; block like this:
+   * &lt;/p&gt;
+   *
+   * &lt;pre&gt;
+   *    try {
+   *        ...general cdajs work...
+   *    } catch (exception) {
+   *        if (exception instanceof CDA.Exception) {
+   *            ...use exception.code, exception.message and exception.data to handle the exception.
+   *        } else {
+   *            ...handle other errors...
+   *        }
+   *    }
+   * &lt;/pre&gt;
+   *
+   * @class CDA.Exception
+   * @constructor
+   */
+  CDA.Exception = function (type, code, message, helpfile, source, data, args) {
+    this.type = type;
+    this.code = code;
+    this.message = message;
+    this.source = source;
+    this.helpfile = helpfile;
+    this.data = data;
+    this.args = args;
+    return this;
+  };
+
+
+  /**
+   * Create an exception.
+   *
+   * @param codeName an exception code name.
+   * @param source an exception source
+   * @param data an exception data to specify
+   * @return {Object|CDA.Exception}
+   */
+  CDA.Exception.newError = function (codeName, source, data) {
+    return new this.newDetailError(CDA.Exception[codeName + &quot;_CODE&quot;], CDA.Exception[codeName + &quot;_MSG&quot;], CDA.Exception[codeName + &quot;_HELP&quot;], source, data);
+  };
+
+
+  /**
+   * Create an exception.
+   *
+   * @param code an exception code name.
+   * @param message an exception message.
+   * @param help an exception information help.
+   * @param source an exception source
+   * @param data an exception data to specify
+   * @returns {Object|CDA.Exception}
+   */
+  CDA.Exception.newDetailError = function (code, message, help, source, data) {
+    return new CDA.Exception(CDA.Exception.TYPE_ERROR, code, message, help, source, data);
+  };
+
+
+  var CDAWikiExceptionCodes = &quot;https://github.com/latinojoel/cdajs/wiki/Exception-Codes&quot;;
+
+
+  /**
+   * Can appear as value for the type property of instances of the CDA.Exception class, and
+   * indicates that this &lt;code&gt;CDA.Exception&lt;/code&gt; signals an error.
+   *
+   * @property TYPE_ERROR
+   * @static
+   * @final
+   * @type string
+   * @default error
+   */
+  CDA.Exception.TYPE_ERROR = &quot;error&quot;;
+
+
+  /**
+   * Can appear as value for the type property of instances of the CDA.Exception class, and
+   * indicates that this &lt;code&gt;CDA.Exception&lt;/code&gt; signals a warning.
+   *
+   * @property TYPE_WARNING
+   * @static
+   * @final
+   * @type string
+   * @default warning
+   */
+  CDA.Exception.TYPE_WARNING = &quot;warning&quot;;
+
+
+  /**
+   * Exception code indicating that missing the CDA URL.
+   *
+   * @property ERROR_CDA_URL_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -1
+   */
+  CDA.Exception.ERROR_CDA_URL_CODE = -1;
+  CDA.Exception.ERROR_CDA_URL_MSG = &quot;Missing CDA URL&quot;;
+  CDA.Exception.ERROR_CDA_URL_HELP = &quot;Please provide CDA url on the CDA object constructor (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing options in the constructor.
+   *
+   * @property ERROR_CDA_OPTIONS_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -2
+   */
+  CDA.Exception.ERROR_CDA_OPTIONS_CODE = -2;
+  CDA.Exception.ERROR_CDA_OPTIONS_MSG = &quot;Missing CDA Options&quot;;
+  CDA.Exception.ERROR_CDA_OPTIONS_HELP = &quot;Please provide CDA options on the CDA object constructor (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating a general XMLHttpRequest error. If this error occurs, the data object
+   * of the exception will have these members:
+   * &lt;ul&gt;
+   * &lt;li&gt;request: the options that make up the original HTTP request&lt;/li&gt;
+   * &lt;li&gt;status: the HTTP status code&lt;/li&gt;
+   * &lt;li&gt;statusText: the HTTP status text&lt;/li&gt;
+   * &lt;/ul&gt;
+   *
+   * @property HTTP_ERROR_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -3
+   */
+  CDA.Exception.HTTP_ERROR_CODE = -3;
+  CDA.Exception.HTTP_ERROR_MSG = &quot;HTTP ERROR&quot;;
+  CDA.Exception.HTTP_ERROR_HELP = &quot;Generic HTTP error (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing username for Pentaho authentication.
+   *
+   * @property ERROR_CDA_USERNAME_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -4
+   */
+  CDA.Exception.ERROR_CDA_USERNAME_CODE = -4;
+  CDA.Exception.ERROR_CDA_USERNAME_MSG = &quot;Missing CDA Username&quot;;
+  CDA.Exception.ERROR_CDA_USERNAME_HELP = &quot;Please provide CDA username on the CDA object constructor (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing password for Pentaho authentication.
+   *
+   * @property ERROR_CDA_PASSWORD_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -5
+   */
+  CDA.Exception.ERROR_CDA_PASSWORD_CODE = -5;
+  CDA.Exception.ERROR_CDA_PASSWORD_MSG = &quot;Missing CDA Password&quot;;
+  CDA.Exception.ERROR_CDA_PASSWORD_HELP = &quot;Please provide CDA password on the CDA object constructor (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing data access id for CDA query.
+   *
+   * @property ERROR_MISSING_DATA_ACCESS_ID_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -6
+   */
+  CDA.Exception.ERROR_MISSING_DATA_ACCESS_ID_CODE = -6;
+  CDA.Exception.ERROR_MISSING_DATA_ACCESS_ID_MSG = &quot;Missing CDA data access id&quot;;
+  CDA.Exception.ERROR_MISSING_DATA_ACCESS_ID_HELP = &quot;Please provide CDA data access id (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing params object for invoke CDA endpoint.
+   *
+   * @property ERROR_MISSING_PARAMS_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -7
+   */
+  CDA.Exception.ERROR_MISSING_PARAMS_CODE = -7;
+  CDA.Exception.ERROR_MISSING_PARAMS_MSG = &quot;Missing object params&quot;;
+  CDA.Exception.ERROR_MISSING_PARAMS_HELP = &quot;Please provide params (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing solution property on object params for invoke CDA endpoint.
+   *
+   * @property ERROR_MISSING_PARAMS_SOLUTION_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -8
+   */
+  CDA.Exception.ERROR_MISSING_PARAMS_SOLUTION_CODE = -8;
+  CDA.Exception.ERROR_MISSING_PARAMS_SOLUTION_MSG = &quot;Missing solution property on object params&quot;;
+  CDA.Exception.ERROR_MISSING_PARAMS_SOLUTION_HELP = &quot;Please provide solution property on params (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing path property on object params for invoke CDA endpoint.
+   *
+   * @property ERROR_MISSING_PARAMS_PATH_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -9
+   */
+  CDA.Exception.ERROR_MISSING_PARAMS_PATH_CODE = -9;
+  CDA.Exception.ERROR_MISSING_PARAMS_PATH_MSG = &quot;Missing path property on object params&quot;;
+  CDA.Exception.ERROR_MISSING_PARAMS_PATH_HELP = &quot;Please provide path property on params (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  /**
+   * Exception code indicating that missing file property on object params for invoke CDA endpoint.
+   *
+   * @property ERROR_MISSING_PARAMS_FILE_CODE
+   * @static
+   * @final
+   * @type {int}
+   * @default -10
+   */
+  CDA.Exception.ERROR_MISSING_PARAMS_FILE_CODE = -10;
+  CDA.Exception.ERROR_MISSING_PARAMS_FILE_MSG = &quot;Missing file property on object params&quot;;
+  CDA.Exception.ERROR_MISSING_PARAMS_FILE_HELP = &quot;Please provide file property on params (Please consult this page &quot; + CDAWikiExceptionCodes + &quot;)&quot;;
+
+
+  CDA.Exception.prototype = {
+
+    /**
+     * This propery indicates what kind of exception occurred. It can have one of the following
+     * values:
+     * &lt;dl&gt;
+     * &lt;dt&gt;&lt;code&gt;TYPE_WARNING&lt;/code&gt;&lt;/dt&gt;
+     * &lt;dd&gt;Indicates a warning&lt;/dd&gt;
+     * &lt;dt&gt;&lt;code&gt;TYPE_ERROR&lt;/code&gt;&lt;/dt&gt;
+     * &lt;dd&gt;Indicates an error&lt;/dd&gt;
+     * &lt;/dl&gt;
+     *
+     * @property type
+     * @type {string}
+     * @default null
+     */
+    type: null,
+
+
+    /**
+     * A code that can be used to identify this particular kind of exception.
+     *
+     * @property code
+     * @type {int}
+     * @default null
+     */
+    code: null,
+    /**
+     * A human readable message that describes the nature of the error or warning.
+     *
+     * @property message
+     * @type {string}
+     * @default null
+     */
+    message: null,
+
+
+    /**
+     * A name that indicates in what component (on the client or server side) this error or warning
+     * occurred.
+     *
+     * @property source
+     * @type {string}
+     * @default null
+     */
+    source: null,
+
+
+    /**
+     * A path or url that points to a document that contains more information about this error.
+     *
+     * @property helpfile
+     * @type {string}
+     * @default null
+     */
+    helpfile: null,
+
+
+    /**
+     * Additional data captured when the exception was instantiated. The type of information stored
+     * here is dependent upon the nature of the error.
+     *
+     * @property data
+     * @type {string}
+     * @default null
+     */
+    data: null,
+    _throw: function () {
+      throw this;
+    },
+
+
+    /**
+     * A reference to the built-in &lt;code&gt;arguments&lt;/code&gt; array of the function that is throwing
+     * the exception This can be used to get a &quot;stack trace&quot;
+     *
+     * @property args
+     * @type {array}
+     */
+    args: null,
+
+
+    /**
+     * Returns a string representing this exception
+     *
+     * @method toString
+     * @return a string representing this exception
+     */
+    toString: function () {
+      return this.type + &quot; &quot; + this.code + &quot;: &quot; + this.message + &quot; (source: &quot; + this.source + &quot;)&quot;;
+    },
+
+
+    /**
+     * Get a stack trace.
+     *
+     * @method getStackTrace
+     * @return an array of objects describing the function on the stack
+     */
+    getStackTrace: function () {
+      var stack = &quot;&quot;;
+      if (this.args) {
+        var func = this.args.callee;
+        while (func) {
+          funcstring = String(func);
+          func = func.caller;
+        }
+      }
+      return stack;
+    }
+  };
+
+
+  /*
+   * Register CDAjs. In an amd (https://github.com/amdjs/amdjs-api/wiki/AMD) environment, use the
+   * define function Otherwise, add it to the global window variable. For server side environemnts
+   * that do not have a proper window object, simply create a global variable called window and
+   * assign an object to it that you want to function as the CDA container.
+   */
+  if (typeof (define) === &quot;function&quot; &amp;&amp; define.amd) {
+    define(function () {
+      return CDA;
+    });
+  } else window.CDA = CDA;
+
+  return CDA;
+
+})(typeof exports === &quot;undefined&quot; ? window : exports);
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

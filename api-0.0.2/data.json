@@ -1,0 +1,691 @@
+{
+    "project": {
+        "name": "CDAjs",
+        "description": "CDAjs is a stand-alone javascript library for working with Pentaho Community Data Access plugin.",
+        "version": "0.0.2",
+        "url": "http://latinojoel.github.io/cdajs",
+        "logo": "http://latinojoel.github.io/cdajs/images/cdajs_logo.png"
+    },
+    "files": {
+        "examples\\expressjs-app-sample\\app.js": {
+            "name": "examples\\expressjs-app-sample\\app.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\cda.js": {
+            "name": "lib\\cda.js",
+            "modules": {
+                "CDAjs": 1
+            },
+            "classes": {
+                "CDA": 1,
+                "CDA.Exception": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "CDAjs": {
+            "name": "CDAjs",
+            "submodules": {},
+            "classes": {
+                "CDA": 1,
+                "CDA.Exception": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib\\cda.js",
+            "line": 486,
+            "description": "This is <b>CDAjs</b> - a stand-alone javascript library for working with Pentaho plugin\n\"Community Data Access\" CDA (<i>Community Data Access</i>) is a open source plugin for\n<b>Pentaho Business Analysis</b> suite, designed to allow greater flexibility for data sources.\nPowered by <a href=\"http://www.webdetails.pt/ctools/cda.html\" target=\"_blank\">WebDetails</a>.\n<br/><br/> <b>CDAjs</b> is cross-browser and <a\nhref=\"http://nodejs.org\"target=\"_blank\">Node.js</a> compatible and enables web-browser-based\nanalytical Pentaho Business Intelligence applications.",
+            "title": "CDAjs"
+        }
+    },
+    "classes": {
+        "CDA": {
+            "name": "CDA",
+            "shortname": "CDA",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "CDAjs",
+            "namespace": "",
+            "file": "lib\\cda.js",
+            "line": 273,
+            "description": "The CDA class provides a javascript API to communicate Pentaho Community Data Access plugin\n(CDA) over HTTP.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "standard options",
+                    "type": "Object"
+                }
+            ]
+        },
+        "CDA.Exception": {
+            "name": "CDA.Exception",
+            "shortname": "CDA.Exception",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "CDAjs",
+            "namespace": "",
+            "file": "lib\\cda.js",
+            "line": 486,
+            "description": "<p>\nThis class is used to indicate an runtime errors occurring in any of the methods of the CDAjs\nclasses.\n</p>\n<p>\nYou do not need to instantiate objects of this class yourself. Rather, instances of this class\nare created and thrown at runtime whenever an error occurs.\n</p>\n<p>\nTo handle CDAjs errors, you can use a <code>try...catch</code> block like this:\n</p>\n\n<pre>\n   try {\n       ...general cdajs work...\n   } catch (exception) {\n       if (exception instanceof CDA.Exception) {\n           ...use exception.code, exception.message and exception.data to handle the exception.\n       } else {\n           ...handle other errors...\n       }\n   }\n</pre>",
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "examples\\expressjs-app-sample\\app.js",
+            "line": 2,
+            "description": "Module dependencies.",
+            "class": "CDA"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 34,
+            "description": "Get's a XML Http Request",
+            "return": {
+                "description": "a XML Http Request object.",
+                "type": "Object"
+            },
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 135,
+            "description": "Convert parameters for HTTP request.",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "a parameters to convert."
+                }
+            ],
+            "return": {
+                "description": "a string with parameters converted for HTTP request.",
+                "type": "String"
+            },
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 154,
+            "description": "Checks argument is undefined.",
+            "params": [
+                {
+                    "name": "arg",
+                    "description": "an argument."
+                }
+            ],
+            "return": {
+                "description": "<code>true</code> if argument is undefined, <code>false</code> if\n        argument isn't undefined.",
+                "type": "Boolean"
+            },
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 167,
+            "description": "Checks argument is function.",
+            "params": [
+                {
+                    "name": "arg",
+                    "description": "an argument."
+                }
+            ],
+            "return": {
+                "description": "<code>true</code> if argument is function, <code>false</code> if argument\n        isn't function.",
+                "type": "Boolean"
+            },
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 180,
+            "description": "Function responsable for invoke an endpoint.",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "a callback function executed when HTTP request to endpoint gives success."
+                },
+                {
+                    "name": "options",
+                    "description": "a options for invoke endpoint (can be HTTP parameters, ...)."
+                },
+                {
+                    "name": "endpoint",
+                    "description": "an endpoint name."
+                },
+                {
+                    "name": "self",
+                    "description": "a self instance of CDAjs."
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 292,
+            "description": "These are the default options used for new CDA instances in case no custom properties are set.\nIt sets the following properties:\n<ul>\n<li><code>REQUEST_TIMEOUT</code> int: 60000 - number of milliseconds before a request to the\nPentaho server will timeout </li>\n<li><code>ASYNC</code> boolean: true - determines whether synchronous or asynchronous\ncommunication with the Pentaho server will be used.</li>\n<li><code>ACCEPT</code> string: text/xml, application/json - determines the accept header on\nhttp request with the Pentaho server will be used.</li>\n<li><code>CONTENT_TYPE</code> string: application/json - determines the content-type header\non http request with the Pentaho server will be used.</li>\n<li><code>METHOD</code> string: GET - determines the method on http request with the Pentaho\nserver will be used.</li>\n</ul>",
+            "itemtype": "property",
+            "name": "DEFAULT_OPTIONS",
+            "static": 1,
+            "type": "object",
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 320,
+            "description": "Invokes the <code>/cda/doQuery</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "doQuery",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 342,
+            "description": "Invokes the <code>/cda/listQueries</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "listQueries",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 376,
+            "description": "Invokes the <code>/cda/getCdaList</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "getCdaList",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 394,
+            "description": "Invokes the <code>/cda/listDataAccessTypes</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "listDataAccessTypes",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 412,
+            "description": "Invokes the <code>/cda/listParameters</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "listParameters",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 450,
+            "description": "Invokes the <code>/cda/clearCache</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "clearCache",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 468,
+            "description": "Invokes the <code>/cda/getCdaFile</code> endpoint of CDA.",
+            "itemtype": "method",
+            "name": "getCdaFile",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Options to use on http request.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function to be called for cda query done.",
+                    "type": "Function()"
+                }
+            ],
+            "class": "CDA",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 526,
+            "description": "Create an exception.",
+            "params": [
+                {
+                    "name": "codeName",
+                    "description": "an exception code name."
+                },
+                {
+                    "name": "source",
+                    "description": "an exception source"
+                },
+                {
+                    "name": "data",
+                    "description": "an exception data to specify"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object|CDA.Exception"
+            },
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 539,
+            "description": "Create an exception.",
+            "params": [
+                {
+                    "name": "code",
+                    "description": "an exception code name."
+                },
+                {
+                    "name": "message",
+                    "description": "an exception message."
+                },
+                {
+                    "name": "help",
+                    "description": "an exception information help."
+                },
+                {
+                    "name": "source",
+                    "description": "an exception source"
+                },
+                {
+                    "name": "data",
+                    "description": "an exception data to specify"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object|CDA.Exception"
+            },
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 557,
+            "description": "Can appear as value for the type property of instances of the CDA.Exception class, and\nindicates that this <code>CDA.Exception</code> signals an error.",
+            "itemtype": "property",
+            "name": "TYPE_ERROR",
+            "static": 1,
+            "final": 1,
+            "type": "string",
+            "default": "error",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 570,
+            "description": "Can appear as value for the type property of instances of the CDA.Exception class, and\nindicates that this <code>CDA.Exception</code> signals a warning.",
+            "itemtype": "property",
+            "name": "TYPE_WARNING",
+            "static": 1,
+            "final": 1,
+            "type": "string",
+            "default": "warning",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 583,
+            "description": "Exception code indicating that missing the CDA URL.",
+            "itemtype": "property",
+            "name": "ERROR_CDA_URL_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-1",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 597,
+            "description": "Exception code indicating that missing options in the constructor.",
+            "itemtype": "property",
+            "name": "ERROR_CDA_OPTIONS_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-2",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 611,
+            "description": "Exception code indicating a general XMLHttpRequest error. If this error occurs, the data object\nof the exception will have these members:\n<ul>\n<li>request: the options that make up the original HTTP request</li>\n<li>status: the HTTP status code</li>\n<li>statusText: the HTTP status text</li>\n</ul>",
+            "itemtype": "property",
+            "name": "HTTP_ERROR_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-3",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 631,
+            "description": "Exception code indicating that missing username for Pentaho authentication.",
+            "itemtype": "property",
+            "name": "ERROR_CDA_USERNAME_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-4",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 645,
+            "description": "Exception code indicating that missing password for Pentaho authentication.",
+            "itemtype": "property",
+            "name": "ERROR_CDA_PASSWORD_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-5",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 659,
+            "description": "Exception code indicating that missing data access id for CDA query.",
+            "itemtype": "property",
+            "name": "ERROR_MISSING_DATA_ACCESS_ID_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-6",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 673,
+            "description": "Exception code indicating that missing params object for invoke CDA endpoint.",
+            "itemtype": "property",
+            "name": "ERROR_MISSING_PARAMS_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-7",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 687,
+            "description": "Exception code indicating that missing solution property on object params for invoke CDA endpoint.",
+            "itemtype": "property",
+            "name": "ERROR_MISSING_PARAMS_SOLUTION_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-8",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 701,
+            "description": "Exception code indicating that missing path property on object params for invoke CDA endpoint.",
+            "itemtype": "property",
+            "name": "ERROR_MISSING_PARAMS_PATH_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-9",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 715,
+            "description": "Exception code indicating that missing file property on object params for invoke CDA endpoint.",
+            "itemtype": "property",
+            "name": "ERROR_MISSING_PARAMS_FILE_CODE",
+            "static": 1,
+            "final": 1,
+            "type": "{int}",
+            "default": "-10",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 731,
+            "description": "This propery indicates what kind of exception occurred. It can have one of the following\nvalues:\n<dl>\n<dt><code>TYPE_WARNING</code></dt>\n<dd>Indicates a warning</dd>\n<dt><code>TYPE_ERROR</code></dt>\n<dd>Indicates an error</dd>\n</dl>",
+            "itemtype": "property",
+            "name": "type",
+            "type": "{string}",
+            "default": "null",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 748,
+            "description": "A code that can be used to identify this particular kind of exception.",
+            "itemtype": "property",
+            "name": "code",
+            "type": "{int}",
+            "default": "null",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 756,
+            "description": "A human readable message that describes the nature of the error or warning.",
+            "itemtype": "property",
+            "name": "message",
+            "type": "{string}",
+            "default": "null",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 766,
+            "description": "A name that indicates in what component (on the client or server side) this error or warning\noccurred.",
+            "itemtype": "property",
+            "name": "source",
+            "type": "{string}",
+            "default": "null",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 777,
+            "description": "A path or url that points to a document that contains more information about this error.",
+            "itemtype": "property",
+            "name": "helpfile",
+            "type": "{string}",
+            "default": "null",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 787,
+            "description": "Additional data captured when the exception was instantiated. The type of information stored\nhere is dependent upon the nature of the error.",
+            "itemtype": "property",
+            "name": "data",
+            "type": "{string}",
+            "default": "null",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 801,
+            "description": "A reference to the built-in <code>arguments</code> array of the function that is throwing\nthe exception This can be used to get a \"stack trace\"",
+            "itemtype": "property",
+            "name": "args",
+            "type": "{array}",
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 811,
+            "description": "Returns a string representing this exception",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "a string representing this exception"
+            },
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        },
+        {
+            "file": "lib\\cda.js",
+            "line": 822,
+            "description": "Get a stack trace.",
+            "itemtype": "method",
+            "name": "getStackTrace",
+            "return": {
+                "description": "an array of objects describing the function on the stack"
+            },
+            "class": "CDA.Exception",
+            "module": "CDAjs"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib\\cda.js:539"
+        },
+        {
+            "message": "Missing item type\nModule dependencies.",
+            "line": " examples\\expressjs-app-sample\\app.js:2"
+        },
+        {
+            "message": "Missing item type\nGet's a XML Http Request",
+            "line": " lib\\cda.js:34"
+        },
+        {
+            "message": "Missing item type\nConvert parameters for HTTP request.",
+            "line": " lib\\cda.js:135"
+        },
+        {
+            "message": "Missing item type\nChecks argument is undefined.",
+            "line": " lib\\cda.js:154"
+        },
+        {
+            "message": "Missing item type\nChecks argument is function.",
+            "line": " lib\\cda.js:167"
+        },
+        {
+            "message": "Missing item type\nFunction responsable for invoke an endpoint.",
+            "line": " lib\\cda.js:180"
+        },
+        {
+            "message": "Missing item type\nCreate an exception.",
+            "line": " lib\\cda.js:526"
+        },
+        {
+            "message": "Missing item type\nCreate an exception.",
+            "line": " lib\\cda.js:539"
+        }
+    ]
+}
