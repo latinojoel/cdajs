@@ -56,7 +56,7 @@ You just need include cda.js to use the CDAjs library.
 
 ### API Documentation
 
-API documentation is available based on the the YUI Doc system on this [link](http://latinojoel.github.io/cdajs/api-0.0.1/).
+API documentation is available based on the the YUI Doc system on this [link](http://latinojoel.github.io/cdajs/api-0.0.2/).
 
 
 
@@ -64,6 +64,7 @@ API documentation is available based on the the YUI Doc system on this [link](ht
 ## Interested Links
 * [CDAjs Web Site](http://latinojoel.github.io/cdajs)
 * [Joel Latino Author - About](https://about.me/latinojoel)
+* [Joel Latino Author - Twitter](https://twitter.com/latinojoel)
 * [Joel Latino Author - Linkedin](http://pt.linkedin.com/in/latinojoel)
 * [Joel Latino Author - Blog](http://joel-latino.blogspot.com/)
 
