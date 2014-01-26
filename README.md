@@ -1,4 +1,6 @@
-# CDAjs
+# ![Android Push Notification icon](https://raw2.github.com/latinojoel/cdajs/master/build/cdajs_logo.png)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/latinojoel/cdajs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 CDAjs is a stand-alone javascript library for working with Pentaho Community Data Access plugin.
 
@@ -74,5 +76,4 @@ API documentation is available based on the the YUI Doc system on this [link](ht
 
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/latinojoel/cdajs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
