@@ -1,4 +1,4 @@
-# ![Android Push Notification icon](https://raw2.github.com/latinojoel/cdajs/master/build/cdajs_logo.png)
+# ![Android Push Notification icon](https://raw.githubusercontent.com/latinojoel/cdajs/master/build/cdajs_logo.png)
 [![NPM](https://nodei.co/npm/cdajs.png?downloads=true&stars=true)](https://nodei.co/npm/cdajs/)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/latinojoel/cdajs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
