@@ -73,8 +73,5 @@ API documentation is available based on the the YUI Doc system on this [link](ht
 
 
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/daf12ea06b14ffdff5a8218656362656 "githalytics.com")](http://githalytics.com/latinojoel/pdi-apple-pushnotifications)
-
-
 
 
